@@ -16,13 +16,13 @@ def procesar():
     # Verificar paridad
     listapar = len(lista1)
     if listapar % 2 != 0:
-        print("es par:",listapar)       
+        print("es par:",listapar)
         return render_template('index.html', listapar=listapar)
     else:
         equipoblanco = lista1[0:len(lista1) // 2]
         equipooscuro = lista1[len(lista1) // 2:len(lista1)]
         print(equipoblanco, equipooscuro)
-        return render_template('index.html', lista1=lista1, equipoblanco=equipoblanco, equipooscuro=equipooscuro)    
+        return render_template('index.html', lista1=lista1, equipoblanco=equipoblanco, equipooscuro=equipooscuro)
 
 
 if __name__ == '__main__':
