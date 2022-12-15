@@ -4,17 +4,19 @@
 	<meta charset="utf-8">
 	<title>Equipo Aleatorio</title>
 </head>
+<div style=background-image:url('https://thumbs.dreamstime.com/b/fondo-del-c%C3%A9sped-del-f%C3%BAtbol-46939464.jpg') background-repeat: no-repeat;</div>
 <body>
+    <center><h1 style="color:white">Equipo Aleatorio</h1></center>
     <form method="POST" action="{{url_for('procesar')}}">
         <div class="mb-3">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="12" cols="20" input name="lista" placeholder="Lista" ></textarea>
+            <center><textarea class="form-control" id="exampleFormControlTextarea1" rows="20" cols="40" input name="lista" placeholder="Lista" ></textarea> </center>
         </div>
         <br><br>
-        <input type="submit" value="Enviar">
-        <h2>La lista debe ser par, no se admite el numero: {{ listapar }}</h2>
+        <center><input type="submit" value="Armar Equipos" style = height:50px width:300px"></center>
+        <center><h2 style="color:white">La lista debe ser par, no se admite el numero: {{ listapar }}</h1></center>
         <br><br>
     </form>
-      <h1>El equipo Camisa Oscura es: {{ equipooscuro }}</h1>
-      <h1>El equipo Camisa Clara es: {{ equipoblanco }}</h1>
+    <center><h1 style="color:white">El equipo Camisa Oscura es: {{ equipooscuro }}</h1></center>
+    <center><h1 style="color:white">El equipo Camisa Clara es: {{ equipoblanco }}</h1></center>
 </body>
 </html>

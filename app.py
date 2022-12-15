@@ -9,7 +9,7 @@ def home():
 @app.route('/procesar', methods=['POST'])  #Se agrega esto para traer por POST datos de algo de html, es una entrada
 def procesar():
     lista1 = request.form.get("lista") #trae la lista desde el formulario web desde index.html
-    lista1 = lista1.split()            #se divide el string anterior por espacios 
+    lista1 = lista1.splitlines()            #se divide el string anterior por lineas ya que es un string
     lista2 = random.shuffle(lista1)    #se hace aleatoria la lista
     print("la lista final es: ", lista1, "El tipo es:    ", type(lista1))
     # Verificar paridad para comprobar que la lista ingresada es par si no muestra error
