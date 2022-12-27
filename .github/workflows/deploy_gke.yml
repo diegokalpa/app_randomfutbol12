@@ -57,9 +57,11 @@ jobs:
         credentials_json: '${{ secrets.CREDENTIALS_GCP }}'
     
     name: Login to Docker Hub
-        with:
-          username: "$docker_username"
-          password: "$docker_pass"
+    run: |-
+      docker login -u $docker_username --password $docker_pass  
+        # with:
+        #   username: "$docker_username"
+        #   password: "$docker_pass"
     # - name: Docker configuration
     #   run: |-
     #     echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
