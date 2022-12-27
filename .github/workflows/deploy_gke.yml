@@ -85,7 +85,7 @@ jobs:
     - name: Install_GCLOUD_COMPONENTS
       run: |-
         sudo apt-get install google-cloud-sdk
-        gcloud container clusters get-credentials "$GKE_CLUSTER"
+        gcloud container clusters get-credentials "$GKE_CLUSTER" --region=us-central1
 
     
     
