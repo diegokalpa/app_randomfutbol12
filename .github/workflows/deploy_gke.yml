@@ -41,6 +41,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
     # Alternative option - authentication via credentials json
     - id: 'auth'
@@ -49,9 +51,9 @@ jobs:
         credentials_json: '${{ secrets.CREDENTIALS_GCP }}'
     
 
-    - name: Docker configuration
-      run: |-
-        echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
+    # - name: Docker configuration
+    #   run: |-
+    #     echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
     # # Get the GKE credentials so we can deploy to the cluster
     # - name: Set up GKE credentials
     #   uses: google-github-actions/get-gke-credentials@v0
