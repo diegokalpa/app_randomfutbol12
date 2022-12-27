@@ -3,12 +3,12 @@ kind: Namespace
 metadata:
   name: randomfutbol
 
---
+---
 apiVersion: apps/v1     #se puede ver en kubectl api-resources
 kind: Deployment        #se puede ver en kubectl api-resources
 metadata:
   name: app-randomfutbol
-  Namespace: randomfutbol
+  namespace: randomfutbol
   labels:
     app: python
 spec:
