@@ -27,7 +27,7 @@ spec:
         imagePullPolicy: IfNotPresent
       #   ports:
       #   - containerPort: 80     # Saber que puerto usara este container.
-      # restartPolicy: Always
+      restartPolicy: Always
 
 #Aqui empieza a crearse el servicio de tipo ClusterIP
 ---
