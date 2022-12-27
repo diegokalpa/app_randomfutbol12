@@ -57,7 +57,7 @@ jobs:
         credentials_json: '${{ secrets.CREDENTIALS_GCP }}'
     
     - name: Login to Docker Hub
-    run: |-
+      run: |-
       docker login -u $docker_username --password $docker_pass  
         # with:
         #   username: "$docker_username"
