@@ -24,11 +24,7 @@ spec:
       containers:
       - name: app-randomfutbol
         image: diegokalpa/app_randomfutbol:v2
-        imagePullPolicy: IfNotPresent
-        # command: [ "echo", "SUCCESS" ]
-
-      #   ports:
-      #   - containerPort: 80     # Saber que puerto usara este container.
+        imagePullPolicy: Always
       #restartPolicy: Always
 
 #Aqui empieza a crearse el servicio de tipo ClusterIP.
