@@ -25,7 +25,7 @@ spec:
       - name: app-randomfutbol
         image: diegokalpa/app_randomfutbol:v2
         imagePullPolicy: IfNotPresent
-        command: [ "echo", "SUCCESS" ]
+        # command: [ "echo", "SUCCESS" ]
 
       #   ports:
       #   - containerPort: 80     # Saber que puerto usara este container.
