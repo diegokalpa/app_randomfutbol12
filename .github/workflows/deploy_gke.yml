@@ -22,10 +22,10 @@ env:
   GKE_CLUSTER: diego-cluster    # TODO: update to cluster name
   GKE_ZONE: us-central1  # TODO: update to cluster zone.
   DEPLOYMENT_NAME: app_randomfutbol # TODO: update to deployment name
-  REPOSITORY: samples # TODO: update to Artifact Registry docker repository
-  IMAGE: static-site
-  docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
-  docker_pass: ${{ secrets.DOCKERHUB_TOKEN }}
+  REPOSITORY: diegokalpa/app_randomfutbol # TODO: update to Artifact Registry docker repository
+  IMAGE: v2
+  # docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
+  # docker_pass: ${{ secrets.DOCKERHUB_TOKEN }}
 
 jobs:
   setup-build-publish-deploy:
@@ -49,9 +49,9 @@ jobs:
         credentials_json: '${{ secrets.CREDENTIALS_GCP }}'
     
 
-    # - name: Docker configuration
-    #   run: |-
-    #     echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
+    - name: Docker configuration
+      run: |-
+        echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
     # # Get the GKE credentials so we can deploy to the cluster
     # - name: Set up GKE credentials
     #   uses: google-github-actions/get-gke-credentials@v0
