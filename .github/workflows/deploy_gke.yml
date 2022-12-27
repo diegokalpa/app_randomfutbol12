@@ -41,14 +41,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Configure Workload Identity Federation and generate an access token.
-    # - id: 'auth'
-    #   name: 'Authenticate to Google Cloud'
-    #   uses: 'google-github-actions/auth@v0'
-    #   with:
-    #     token_format: 'access_token'
-    #     workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-    #     service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
 
     # Alternative option - authentication via credentials json
     - id: 'auth'
@@ -56,16 +48,7 @@ jobs:
       with:
         credentials_json: '${{ secrets.CREDENTIALS_GCP }}'
     
-    - name: Login to Docker Hub
-      uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # run: |-
-      # docker login -u $docker_username --password $docker_pass  
-        # with:
-        #   username: "$docker_username"
-        #   password: "$docker_pass"
+
     # - name: Docker configuration
     #   run: |-
     #     echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
@@ -94,6 +77,7 @@ jobs:
     #     curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
     #     chmod u+x ./kustomize
     # Deploy the Docker image to the GKE cluster
+
     - name: Install_GCLOUD_COMPONENTS
       run: |-
         sudo apt-get install google-cloud-sdk
@@ -103,8 +87,6 @@ jobs:
         sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin kubectl
         export USE_GKE_GCLOUD_AUTH_PLUGIN=True
         gcloud container clusters get-credentials "$GKE_CLUSTER" --region=us-central1
-
-    
     
     - name: Deploy
       run: |-
