@@ -12,7 +12,7 @@ metadata:
   labels:
     app: python
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: python
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: app-randomfutbol
-        image: diegokalpa/app_randomfutbol:v2
+        image: diegokalpa/app_randomfutbol:v3
         imagePullPolicy: Always
       #restartPolicy: Always
 
