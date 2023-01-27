@@ -33,6 +33,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: svc-randomfutbol
+  namespace: randomfutbol
   labels:
     app: python
 spec:
