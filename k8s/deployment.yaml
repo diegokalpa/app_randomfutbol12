@@ -73,3 +73,18 @@ spec:
       targetPort: 5000
   selector:
     app: python
+---
+---
+#Se crea LoadBalancer para poder acceder a Cloud desde afuera.
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-grafana
+  namespace: istio-system
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 3000
+  selector:
+    app: grafana
