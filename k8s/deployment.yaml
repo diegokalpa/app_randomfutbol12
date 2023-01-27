@@ -59,3 +59,16 @@ spec:
     - protocol: TCP
       port:       80        # puerto donde estara escuchando el servicio
       targetPort: 5000
+---
+#Se crea LoadBalancer para poder acceder a Cloud desde afuera.
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-randomfutbol
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    app: python
